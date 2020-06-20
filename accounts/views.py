@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from tasks.models import Task
+import random
 from django.core.mail import send_mail
 
 def register(request):
     if request.method == "POST":
+        # Get form values
         name = request.POST['name']
         username = request.POST['username']
         phone = request.POST['phone']
@@ -47,6 +50,26 @@ def login(request):
         return render(request,'accounts/login.html')
 
 def dashboard(request):
-    return redirect('index')
-    # return render(request, 'accounts/dashboard.html', context)
+    if User.is_authenticated:
+        user_tasks = Task.objects.filter(user_id = request.user.id).order_by('-creation_date')
 
+        context = {
+            'tasks':user_tasks,
+        }
+
+        return render(request, 'accounts/dashboard.html', context)
+    else:
+        return redirect('index')
+
+def logout(request):
+    auth.logout(request)
+    messages.success(request, "You have successfully logged out")
+    return redirect('index')
+
+
+
+
+    
+    
+
+    
