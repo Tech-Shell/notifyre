@@ -47,5 +47,6 @@ def login(request):
         return render(request,'accounts/login.html')
 
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html', context)
+    return redirect('index')
+    # return render(request, 'accounts/dashboard.html', context)
 
