@@ -1,0 +1,21 @@
+body{
+    background-color: coral;
+  }
+  
+  .add{
+    margin-top: 11rem;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .head{
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: black;
+  }
+  
+  hr{
+    width: 95%;
+    background-color: black;
+  }
+  
