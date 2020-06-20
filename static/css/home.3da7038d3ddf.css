@@ -1,0 +1,240 @@
+*{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: black;
+}
+
+nav{
+  background-color: coral;
+  display: inline-block;
+}
+
+.nav{
+  margin-right: 1rem;
+}
+
+.login{
+  margin-left: auto;
+}
+
+ul li a{
+  color: black;
+  font-size: 1.4rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  transition-duration: 0.3s;
+}
+
+ul li{
+  margin: 0.3rem;
+  padding: 5px;
+}
+
+.log{
+  border: 1px solid black;
+  border-radius: 10px;
+  font-weight: normal;
+  transition-duration: 0.3s;
+}
+
+.log:hover{
+  background-color: black;
+}
+
+ul li a:hover{
+  color: white;
+}
+
+h1{
+  margin-top: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  font-size: 3rem;
+}
+
+.logo_img{
+  height: 90%;
+  width: 90%;
+}
+
+.logo_content h1{
+  margin-top: 2rem;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+  font-size: 4rem;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.logo_content ul li{
+  list-style: none;
+}
+
+.logo_content ul{
+  margin-top: 3rem;
+}
+
+.logo_content ul p{
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.head{
+  margin-top: 3rem;
+  font-size: 2rem;
+  color: black;
+}
+
+.social{
+  margin-top: 4rem;
+}
+
+.about_head{
+  color: coral;
+  font-size: 2rem;
+  margin-top: -3rem;
+}
+
+.about_content{
+  margin-top: 3rem;
+  font-size: 1.7rem;
+  color: white;
+}
+
+#about{
+  height: 30rem;
+}
+
+.logo{
+  margin-top: 7rem;
+}
+
+.contact_image{
+  border-radius: 50%;
+  width: 15rem;
+}
+
+.social h4,p{
+  font-size: 1.2rem;
+  color: black;
+}
+
+.team{
+  background-color: white;
+  height: 50rem;
+}
+
+.icon{
+  width: 3rem;
+  height: 3rem;
+}
+
+.social-links{
+  display: inline-block;
+  text-decoration: none;
+}
+
+.contact_head{
+  color: coral;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.icon{
+  color: white;
+}
+
+.contact_text{
+  color: white;
+}
+
+.contact{
+  height: 24rem;
+}
+
+.to-top {
+  background:coral;
+  position: fixed;
+  bottom: 16px;
+  right:32px;
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:32px;
+  color:black;
+  text-decoration: none;
+  opacity:0;
+  pointer-events: none;
+  transition: all .4s;
+}
+
+.to-top:hover{
+  color: white;
+}
+
+.to-top.active {
+  bottom:32px;
+  pointer-events: auto;
+  opacity:1;
+  text-decoration: none;
+}
+
+@media(max-width: 576px){
+  .login{
+    margin-left: 0px;
+  }
+
+  .log{
+    border-radius: 0%;
+    border: none;
+    font-size: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .log:hover{
+    background-color: coral;
+    color: white;
+  }
+
+  .logo_content{
+    margin-top: -5rem;
+  }
+
+  .logo_content h1{
+    font-size: 2rem;
+  }
+
+  .logo_content ul p{
+    font-size: 1rem;
+    font-weight: normal;
+  }
+
+  #about{
+    height: fit-content;
+  }
+
+  .about_head{
+    margin-top: 0rem;
+  }
+
+  .logo{
+    height: fit-content;
+  }
+
+  .team{
+    height: fit-content;
+  }
+}
+
+
