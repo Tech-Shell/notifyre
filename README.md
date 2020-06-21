@@ -7,3 +7,7 @@
   <li>We have created a user-based system in which once you create an account , you will get access to a dashboard where in you can add tasks, delete tasks, update tasks.</li>
   <li>One of the key feautres is that we have set up a cron job on a particular view method which would send emails to the users every hour of the day regarding the tasks that are not yet marked complete by them hence helping them be more productive.</li>
 </ul>
+
+# Testing
+Inorder to test , you can use these test credentials:
+<ul><li><b>Username:</b> testuser@gmail.com</li><li><b>Password:</b> test</li></ul>
