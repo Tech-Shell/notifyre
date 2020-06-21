@@ -35,7 +35,7 @@
       </button>
       <div class="collapse navbar-collapse nav menu">
         <ul class="navbar-nav nav-align">
-          <li class="nav-item"><a href="#how" class="nav-link"></a></li>
+          <li class="nav-item"><a href="#how" class="nav-link">How it works?</a></li>
           <li class="nav-item"><a href="#task" class="nav-link">Commands</a></li>
           <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
           <li class="nav-item sign"><a href="{% url 'logout' %}" class="nav-link logout">Logout</a></li>
@@ -91,7 +91,7 @@
               </div>
             </form>
               <div class="form-inline">
-                <form method="POST" action="{% url 'reset_email' %}">
+                <form method="POST" action="#">
                   {% csrf_token %}
                   <input type="hidden" name="user_email" value="{{ user.username }}">
                   <button type="submit" class="btn btn-info">Reset Email</button>
