@@ -25,7 +25,7 @@ SECRET_KEY = '6#e2m81f7wo-l16g1yezum!es1&dr=^d*&k-523))1w-*739w8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','notifyre-webapp.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','www.notifyre.tech','notifyre.tech',]
 
 
 # Application definition
