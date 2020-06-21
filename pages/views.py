@@ -26,10 +26,10 @@ def emailsender(request):
         starting_word = f'Hi'
         new_starting_word = starting_word.ljust(2)
         print(f'{username}----{uemail}---{gummy}')
-        if gummy == 0:
+        if int(gummy) == 0:
             send_mail(
                     '[Notifyre] Hourly Mail Notification For\t' + username,
-                    new_starting_word +'\nYou currently have '+ gummy + 'tasks left to do. Congratulations on completing all of your tasks ! If you want to add more tasks follow this link to the dashboard: www.notifyre.tech/accounts/dashboard',
+                    new_starting_word +'\nYou currently have '+ gummy + 'tasks left to do. Congratulations on completing all of your tasks ! If you want to add more tasks follow this link to the dashboard: https://www.notifyre.tech/accounts/dashboard',
                     'techshell.noreply@gmail.com',
                     [uemail],
                     fail_silently=False 
@@ -37,7 +37,7 @@ def emailsender(request):
         else:
             send_mail(
                     '[Notifyre] Hourly Mail Notification For\t' + username,
-                    new_starting_word +'\nYou currently have '+ gummy + 'tasks left to do. Check the dashboard for more details. Hope you complete them soon ! Follow this link to the dashboard: www.notifyre.tech/accounts/dashboard',
+                    new_starting_word +'\nYou currently have '+ gummy + 'tasks left to do. Check the dashboard for more details. Hope you complete them soon ! Follow this link to the dashboard: https://www.notifyre.tech/accounts/dashboard',
                     'techshell.noreply@gmail.com',
                     [uemail],
                     fail_silently=False 
