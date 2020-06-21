@@ -52,7 +52,7 @@ def login(request):
 def dashboard(request):
     if User.is_authenticated:
         if request.user.id == None:
-            return redirect('index')
+            return redirect('login')
         
         user_tasks = Task.objects.filter(user_id = request.user.id).order_by('-creation_date')
         
