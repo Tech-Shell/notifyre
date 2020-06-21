@@ -29,7 +29,7 @@ def emailsender(request):
         if int(gummy) == 0:
             send_mail(
                     '[Notifyre] Hourly Mail Notification For\t' + username,
-                    new_starting_word +'\nYou currently have '+ gummy + 'tasks left to do. Congratulations on completing all of your tasks ! If you want to add more tasks follow this link to the dashboard: http://www.notifyre.tech/accounts/dashboard',
+                    new_starting_word +'\nYou currently have '+ gummy + 'tasks left to do. Congratulations on completing all of your tasks ! If you want to add more tasks follow this link to the dashboard: http://www.notifyre.tech/accounts/login',
                     'techshell.noreply@gmail.com',
                     [uemail],
                     fail_silently=False 
@@ -37,7 +37,7 @@ def emailsender(request):
         else:
             send_mail(
                     '[Notifyre] Hourly Mail Notification For\t' + username,
-                    new_starting_word +'\nYou currently have '+ gummy + 'tasks left to do. Check the dashboard for more details. Hope you complete them soon ! Follow this link to the dashboard: http://www.notifyre.tech/accounts/dashboard',
+                    new_starting_word +'\nYou currently have '+ gummy + 'tasks left to do. Check the dashboard for more details. Hope you complete them soon ! Follow this link to the dashboard: http://www.notifyre.tech/accounts/login',
                     'techshell.noreply@gmail.com',
                     [uemail],
                     fail_silently=False 
