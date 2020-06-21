@@ -25,7 +25,7 @@ def register(request):
                 user.save()
                 auth.login(request, user)
                 messages.success(request,"You can now log in.")
-                return redirect('login')
+                return redirect('index')
 
         else:
             messages.success(request,'Passwords do not match.')
