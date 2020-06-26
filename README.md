@@ -1,5 +1,5 @@
 # Notifyre
-<b>To-do list becomes thicker? Use Notifyre, it's easy and quicker!0</b><br>http://www.notifyre.tech/<br>
+<b>To-do list becomes thicker? Use Notifyre, it's easy and quicker!</b><br>http://www.notifyre.tech/<br>
 # About
 <ul>
   <li>It is a web-app made to help those who are currently working remotely by helping them plan their schedule and reminding them of leftover tasks which would eventually help them to work more efficiently.</li>
