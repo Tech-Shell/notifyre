@@ -172,6 +172,14 @@
                       {% endif %}
                     </div>
                   </div>
+                  <div class="row mt-2 mb-3">
+                    <div class="col-12">
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="important">
+                        <label class="custom-control-label" for="important"><strong>Important</strong></label>
+                      </div>
+                    </div>
+                  </div>
                   <div class="row">
                       <div class="col-2 col-md-1">
                         <form method="POST" action="{% url 'update_task' %}">
