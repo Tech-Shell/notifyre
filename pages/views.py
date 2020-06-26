@@ -27,13 +27,7 @@ def emailsender(request):
         new_starting_word = starting_word.ljust(2)
         print(f'{username}----{uemail}---{gummy}')
         if int(gummy) == 0:
-            send_mail(
-                    '[Notifyre] Hourly Mail Notification For\t' + username,
-                    new_starting_word +'\nYou currently have '+ gummy + 'tasks left to do. Congratulations on completing all of your tasks ! If you want to add more tasks follow this link to the dashboard: http://www.notifyre.tech/accounts/login',
-                    'techshell.noreply@gmail.com',
-                    [uemail],
-                    fail_silently=False 
-                )
+            pass
         else:
             send_mail(
                     '[Notifyre] Hourly Mail Notification For\t' + username,

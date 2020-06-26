@@ -6,11 +6,28 @@ def add_task(request):
         title = request.POST['title']
         description = request.POST['description']
         user_id = request.POST['user_id']
+        try:
+            checkboxes = request.POST.getlist('checker')
+        except:
+            pass
+        
+        
 
         task = Task(title = title, description = description, user_id =user_id,)
 
         task.save()
+
+        try:
+            if checkboxes != None:
+                checkbox = checkboxes[0]
+                task.is_important = True
+            else:
+                task.is_important = False
+        except:
+            pass
         
+        task.save(update_fields=["is_important"]) 
+
     return redirect('dashboard')
 
 def delete_task(request):
@@ -53,5 +70,5 @@ def updates_task(request):
     
     task.title = title
     task.description = description
-    task.save(update_fields=["title","description","task_status"]) 
+    task.save(update_fields=["title","description","task_status",]) 
     return redirect('dashboard')
