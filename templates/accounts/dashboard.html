@@ -75,7 +75,11 @@
             </div>
           </div>
           <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-info">Reset Email</button>
+            <form method="POST" action="{% url 'reset_email' %}">
+              {% csrf_token %}
+              <input type="hidden" name="user_email" value="{{ user.username }}">
+              <button type="submit" class="btn btn-info">Reset Email</button>
+            </form>
             <button type="button" class="btn btn-primary">Change Password</button>
           </div>
         </div>
@@ -133,13 +137,6 @@
               <label class="form-check-label" for="impMail">Send mails for <strong>Important </strong>tasks only.</label>
             </div>
             </form>
-              <div class="form-inline">
-                <form method="POST" action="{% url 'reset_email' %}">
-                  {% csrf_token %}
-                  <input type="hidden" name="user_email" value="{{ user.username }}">
-                  <button type="submit" class="btn btn-info">Reset Email</button>
-                </form>
-              </div>
             </div>              
         </div>
       </div>
