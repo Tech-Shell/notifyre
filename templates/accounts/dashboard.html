@@ -126,7 +126,12 @@
             <div class="form-row justify-content-between">
               <div class="form-inline">
                 <button type="submit" class="btn btn-success">Add Task</button>
-              </div>
+              </div>  
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="impMail">
+              <label class="form-check-label" for="impMail">Send mails for <strong>Important </strong>tasks only.</label>
+            </div>
             </form>
               <div class="form-inline">
                 <form method="POST" action="{% url 'reset_email' %}">
@@ -135,8 +140,7 @@
                   <button type="submit" class="btn btn-info">Reset Email</button>
                 </form>
               </div>
-            </div>
-                         
+            </div>              
         </div>
       </div>
       <hr class="hr_manage">
