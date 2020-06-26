@@ -25,7 +25,7 @@ def register(request):
                 user.save()
                 auth.login(request, user)
                 messages.success(request,"You can now log in.")
-                return redirect('login')
+                return redirect('index')
 
         else:
             messages.success(request,'Passwords do not match.')
@@ -69,6 +69,27 @@ def logout(request):
     auth.logout(request)
     messages.success(request, "You have successfully logged out")
     return redirect('index')
+
+def reset_email(request):
+    if request.method == 'POST':
+       user_email = request.POST['user_email']
+
+    context = {
+        'user_email':user_email,
+    }
+    return render(request, 'accounts/reset_email.html', context)
+
+def resets(request):
+    if request.method == 'POST':
+       new_email = request.POST['new_email']
+       user_email = request.POST['user_email']
+
+    current_user = User.objects.get(username=user_email)
+
+    current_user.username = new_email
+    current_user.email = new_email
+    current_user.save(update_fields=["username","email"]) 
+    return redirect('dashboard')
 
 
 

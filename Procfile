@@ -1,0 +1,1 @@
+web: gunicorn notifyre.wsgi --log-file -

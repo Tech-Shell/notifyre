@@ -1,9 +1,11 @@
 from django.urls import path
 from . import views
+import os
 
-code_da_secret = '582154151155112851536' 
+
+SECRET_CODE = os.environ.get('SECRET_CODE')
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path(code_da_secret, views.emailsender, name="emailsender"),
+    path(SECRET_CODE, views.emailsender, name="emailsender"),
 ]
