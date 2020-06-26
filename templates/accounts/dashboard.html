@@ -35,6 +35,7 @@
       </button>
       <div class="collapse navbar-collapse nav menu">
         <ul class="navbar-nav nav-align">
+          <li class="nav-item"><a href="#" class="nav-link" class="nav-link" data-toggle="modal" data-target="#profileModal">Profile</a></li>
           <li class="nav-item"><a href="#how" class="nav-link">How it works?</a></li>
           <li class="nav-item"><a href="#task" class="nav-link">Commands</a></li>
           <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
@@ -42,8 +43,49 @@
       </div>  
       </div>
     </nav>
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLabel">Profile</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-6"><h6>Name: </h6></div>
+              <div class="col-6">Vaibhav</div>
+            </div>
+            <div class="row">
+              <div class="col-6"><h6>Email/Username: </h6></div>
+              <div class="col-6">temp123@gmail.com</div>
+            </div>
+            <div class="row">
+              <div class="col-6"><h6>Phone Number: </h6></div>
+              <div class="col-6">1234567890</div>
+            </div>
+            <div class="row">
+              <div class="col-6"><h6>Current Tasks: </h6></div>
+              <div class="col-6">5</div>
+            </div>
+            <div class="row">
+              <div class="col-6"><h6>Important Tasks: </h6></div>
+              <div class="col-6">3</div>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <form method="POST" action="{% url 'reset_email' %}">
+              {% csrf_token %}
+              <input type="hidden" name="user_email" value="{{ user.username }}">
+              <button type="submit" class="btn btn-info">Reset Email</button>
+            </form>
+            <button type="button" class="btn btn-primary">Change Password</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container mt-5" id="how">
-   
       <div class="row">
         <div class="col-12 text-center how_head" data-aos="zoom-out">
           <h1>How it works?</h1>
@@ -70,6 +112,8 @@
             <li><p>Use the <span class="update_btn">Update</span> button to edit your entry or to mark it as complete.</p></li>
             <li><p>Use the <span class="delete_btn">Delete</span> button to delete the entry from the list.</p></li>
             <li><p>Don't forget to turn on your mail notifications.</p></li>
+            <li><p>If you don't receive a mail, then it means you have no pending or incomplete tasks.</p></li>
+
           </ul>
         </div>
       </div>
@@ -88,17 +132,14 @@
             <div class="form-row justify-content-between">
               <div class="form-inline">
                 <button type="submit" class="btn btn-success">Add Task</button>
-              </div>
-            </form>
-              <div class="form-inline">
-                <form method="POST" action="{% url 'reset_email' %}">
-                  {% csrf_token %}
-                  <input type="hidden" name="user_email" value="{{ user.username }}">
-                  <button type="submit" class="btn btn-info">Reset Email</button>
-                </form>
-              </div>
+              </div>  
             </div>
-                         
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="impMail">
+              <label class="form-check-label" for="impMail">Send mails for <strong>Important </strong>tasks only.</label>
+            </div>
+            </form>
+            </div>              
         </div>
       </div>
       <hr class="hr_manage">
@@ -111,6 +152,11 @@
           {% for task in tasks %}
               <div class="row justify-content-center">
                 <div class="col-10 task_display mb-5 mt-4">
+                  <div class="row">
+                    <div class="col-12 text-right">
+                      <small>Added on: 26/06/2020 [06:05 pm]</small>
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="col-12">
                       {% if task.task_status == True %}
@@ -128,6 +174,14 @@
                       {% else %}
                         <p>{{ task.description }}</p>
                       {% endif %}
+                    </div>
+                  </div>
+                  <div class="row mt-2 mb-3">
+                    <div class="col-12">
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="important">
+                        <label class="custom-control-label" for="important"><strong>Important</strong></label>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
