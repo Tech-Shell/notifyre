@@ -11,7 +11,11 @@ def index(request):
 def emailsender(request):
     all_users = User.objects.all()
     for user in all_users:
-        opts_important = user.customer.opts_important
+        try:
+            opts_important = user.customer.opts_important
+        except:
+            opts_important = False
+        
         if opts_important == False:
             user_tasks = Task.objects.filter(user_id = user.id, task_status=False)
             gummy = 0
