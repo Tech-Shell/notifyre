@@ -272,7 +272,7 @@
                 <input type="hidden" name="user_email" value="{{ user.username }}">
                 <button type="submit" class="btn btn-info">Reset Email</button>
               </form>
-              <button type="button" class="btn btn-primary">Change Password</button>
+              <button type="button" class="btn btn-primary"><a href="{% url 'password_change' %}" style="text-decoration: none;color:white;">Change Password</a></button>
             </div>
           </div>
         </div>
