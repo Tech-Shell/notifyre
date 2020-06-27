@@ -4,11 +4,14 @@ from django.contrib.auth.models import User
 from tasks.models import Task
 import random
 from django.core.mail import send_mail
+from pages.models import Customer
+
 
 def register(request):
     if request.method == "POST":
         # Get form values
         name = request.POST['name']
+        phone = request.POST['phone']
         username = request.POST['username']
         phone = request.POST['phone']
         password = request.POST['password']
@@ -23,6 +26,8 @@ def register(request):
                 user = User.objects.create_user(username = username,
                 password = password,first_name=j,email=username)
                 user.save()
+                customer = Customer(user=user, phone_number=phone)
+                customer.save()
                 auth.login(request, user)
                 messages.success(request,"You can now log in.")
                 return redirect('index')
@@ -55,10 +60,19 @@ def dashboard(request):
             return redirect('login')
         
         user_tasks = Task.objects.filter(user_id = request.user.id).order_by('-creation_date')
+        current_tasks = 0
+        for i in user_tasks:
+            current_tasks = current_tasks + 1
         
-        
+        user_important_tasks = user_tasks.filter(is_important=True)
+        important_tasks = 0
+        for i in user_important_tasks:
+            important_tasks = important_tasks + 1
+
         context = {
             'tasks':user_tasks,
+            'current_tasks':current_tasks,
+            'important_tasks':important_tasks,
         }
 
         return render(request, 'accounts/dashboard.html', context)
@@ -95,6 +109,25 @@ def resets(request):
 
 
     
-    
+def opts_important(request):
+    if request.method == 'POST':
+        
+        checkboxes = request.POST.getlist('checker')
+        user_id = request.POST['user_id']
+        user = User.objects.get(id=user_id)
+        if checkboxes != None:
+            try:
+                checkbox = checkboxes[0]
+                user.customer.opts_important = True
+                user.customer.save(update_fields=["opts_important"])
+            except:
+                user.customer.opts_important = False
+                user.customer.save(update_fields=["opts_important"])
+            
+        else:
+            print('Error')
+            
 
+
+    return redirect('dashboard')
     

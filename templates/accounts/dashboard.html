@@ -97,11 +97,24 @@
                 <button type="submit" class="btn btn-success">Add Task</button>
               </div>  
             </div>
+          </form>
+          <form action="{% url 'opts_important' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="user_id" value="{{user.id}}">
             <div class="form-check ml-1">
-              <input class="form-check-input" type="checkbox" value="" id="impMail">
+              {% if user.customer.opts_important == True %}
+                <input class="form-check-input" type="checkbox" name="checker" value="opts" id="impMail" checked>
+              {% else %}
+                <input class="form-check-input" type="checkbox" name="checker" value="opts" id="impMail">
+              {% endif %}
               <label class="form-check-label" for="impMail">Send mails for <strong>Important </strong>tasks only.</label>
             </div>
-            </form>
+            <div class="form-row justify-content-between">
+              <div class="form-group mt-2 ml-1">
+                <button type="submit" class="btn btn-success">Save</button>
+              </div>  
+            </div>
+          </form>
             </div>              
         </div>
       
@@ -242,23 +255,23 @@
             <div class="modal-body">
               <div class="row">
                 <div class="col-6"><h6>Name: </h6></div>
-                <div class="col-6">Vaibhav</div>
+                <div class="col-6">{{ user.first_name }}</div>
               </div>
               <div class="row">
                 <div class="col-6"><h6>Email/Username: </h6></div>
-                <div class="col-6">temp123@gmail.com</div>
+                <div class="col-6">{{ user.email }}</div>
               </div>
               <div class="row">
                 <div class="col-6"><h6>Phone Number: </h6></div>
-                <div class="col-6">1234567890</div>
+                <div class="col-6">{{ user.customer.phone_number }}</div>
               </div>
               <div class="row">
                 <div class="col-6"><h6>Current Tasks: </h6></div>
-                <div class="col-6">5</div>
+                <div class="col-6">{{ current_tasks }}</div>
               </div>
               <div class="row">
                 <div class="col-6"><h6>Important Tasks: </h6></div>
-                <div class="col-6">3</div>
+                <div class="col-6">{{ important_tasks }}</div>
               </div>
             </div>
             <div class="modal-footer justify-content-between">
