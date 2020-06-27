@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Task
+from dateutil.tz import *
 
 def add_task(request):
     if request.method == "POST":
@@ -16,7 +17,15 @@ def add_task(request):
         task = Task(title = title, description = description, user_id =user_id,)
 
         task.save()
-
+        local = tzlocal()
+        now = task.creation_date.replace(tzinfo = local)
+        import pytz
+        tz = pytz.timezone('Asia/Kolkata')
+        your_now = now.astimezone(tz)
+        your_now = str(your_now)
+        grey = your_now.split('+')
+        nowh = grey[0]
+        task.creation_date = nowh
         try:
             if checkboxes != None:
                 checkbox = checkboxes[0]
@@ -26,7 +35,7 @@ def add_task(request):
         except:
             pass
         
-        task.save(update_fields=["is_important"]) 
+        task.save(update_fields=["is_important","creation_date"])
 
     return redirect('dashboard')
 
