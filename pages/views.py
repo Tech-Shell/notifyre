@@ -27,7 +27,7 @@ def emailsender(request):
             starting_word = f'Hi'
             new_starting_word = starting_word.ljust(2)
             if int(gummy) == 0:
-                pass
+                print('e')
             else:
                 send_mail(
                         '[Notifyre] Hourly Mail Notification For\t' + username,
@@ -51,7 +51,7 @@ def emailsender(request):
             starting_word = f'Hi'
             new_starting_word = starting_word.ljust(2)
             if int(gummy) == 0:
-                pass
+                print('e')
             else:
                 send_mail(
                         '[Notifyre] Hourly Mail Notification For\t' + username,
@@ -61,7 +61,7 @@ def emailsender(request):
                         fail_silently=False 
                     )
         else:
-            pass
+            print('Eror')
         
 
 
